@@ -10,9 +10,9 @@ func main() {
 
 	http.HandleFunc("/", getRandomJokeHandler)
 
-	log.Println("Listening on 8080")
+	log.Println("Listening on 80")
 
-	err := http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
