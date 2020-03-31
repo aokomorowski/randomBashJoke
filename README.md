@@ -1,2 +1,6 @@
 # randomBashJoke
-like it's 2002
+
+```shell
+docker build randombash:tag
+docker run -p 80:80 --name random-bash-joke randombash:tag
+```
