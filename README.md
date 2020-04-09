@@ -1,6 +1,6 @@
 # randomBashJoke
 
 ```shell
-docker build randombash:tag
-docker run -p 80:80 --name random-bash-joke randombash:tag
+docker build randombash:latest .
+docker run -p -d 80:80 --name random-bash-joke randombash
 ```
