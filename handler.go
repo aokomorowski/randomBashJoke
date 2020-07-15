@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 	"strings"
-
+	"context"
 	"github.com/PuerkitoBio/goquery"
 	log "github.com/sirupsen/logrus"
 )
@@ -36,10 +36,11 @@ func getRandomJoke() joke {
 	return extractJoke(resp)
 }
 
-func getRandomJokeHandler(ctx context.Context, name MyEvent) []byte {
+func getRandomJokeHandler(ctx context.Context, name MyEvent) ([]byte, error) {
 
 	j := getRandomJoke()
-	js := parseJoketoJSON(j)
+	js, err := parseJoketoJSON(j)
 
-	return js
+
+	return js, err
 }
