@@ -13,6 +13,10 @@ type joke struct {
 	Content string `json:"content"`
 }
 
+type MyEvent struct {
+	Name string `json:"name"`
+}
+
 func extractJoke(resp *http.Response) joke {
 	doc, err := goquery.NewDocumentFromReader(resp.Body)
 	if err != nil {
@@ -32,11 +36,10 @@ func getRandomJoke() joke {
 	return extractJoke(resp)
 }
 
-func getRandomJokeHandler(w http.ResponseWriter, r *http.Request) {
+func getRandomJokeHandler(ctx context.Context, name MyEvent) []byte {
 
 	j := getRandomJoke()
 	js := parseJoketoJSON(j)
 
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(js)
+	return js
 }
