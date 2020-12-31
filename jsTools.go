@@ -17,11 +17,12 @@ func JSONMarshal(v interface{}, safeEncoding bool) ([]byte, error) {
 	}
 	return b, err
 }
-func parseJoketoJSON(j joke) []byte {
+func parseJokeToJSON(j joke) ([]byte, error) {
 
 	js, jsonerr := JSONMarshal(j, true)
 	if jsonerr != nil {
 		log.Error(jsonerr)
+		return []byte{}, jsonerr
 	}
-	return js
+	return js, nil
 }

@@ -8,7 +8,7 @@ import (
 func TestExtractJoke(t *testing.T) {
 	resp, _ := http.Get("http://bash.org.pl/400561/")
 
-	got := extractJoke(resp)
+	got, _ := extractJoke(resp)
 	want := joke{"400561", `<krosnoPL> został u was akumulator do kamery
 
 <dwP0L> znalazlem

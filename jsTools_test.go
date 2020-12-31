@@ -7,7 +7,7 @@ import (
 
 func TestParseJoketoJSON(t *testing.T) {
 	j := joke{"123123", "lorem ipsum"}
-	got := parseJoketoJSON(j)
+	got, _ := parseJokeToJSON(j)
 	want := []byte(`{"id":"123123","content":"lorem ipsum"}`)
 
 	if !reflect.DeepEqual(got, want) {
